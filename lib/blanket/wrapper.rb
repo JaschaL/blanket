@@ -86,7 +86,7 @@ module Blanket
         uri = "#{uri}.#{extension}"
       end
 
-      response = HTTParty.public_send(method, uri, {
+      response = Typhoeus::Request.new(method, uri, {
         query:   params,
         headers: headers,
         body:    options[:body]
